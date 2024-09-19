@@ -55,7 +55,7 @@ select, input[type="range"] {
     margin: 10px 0;
 }
 
-label {
+span {
     display: block;
     margin: 10px;
     font-size: 16px;

@@ -8,6 +8,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+const statsForm = document.getElementById("stats-form");
+const selectPosition = document.getElementById("position-search");
+const pointsRange = document.getElementById("points-range");
+const fgRange = document.getElementById("fg-range");
+const threePercentRange = document.getElementById("3p-range");
 const baseUrl = "https://nbaserver-q21u.onrender.com/api/filter";
 function findPlayers(stats) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -28,4 +33,13 @@ function findPlayers(stats) {
             return [];
         }
     });
+}
+function makeRequest() {
+    const newStat = {
+        position: selectPosition === null || selectPosition === void 0 ? void 0 : selectPosition.innerText,
+        points: +pointsRange.innerText,
+        twoPercent: +fgRange.innerText,
+        threePercent: +threePercentRange.innerText
+    };
+    return newStat;
 }
