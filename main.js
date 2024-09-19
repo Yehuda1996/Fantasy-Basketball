@@ -14,6 +14,11 @@ const pointsRange = document.getElementById("points-range");
 const fgRange = document.getElementById("fg-range");
 const threePercentRange = document.getElementById("3p-range");
 const tableBody = document.getElementById("table-body");
+const pointGaurd = document.getElementById("pg-display");
+const shootingGaurd = document.getElementById("sg-dispaly");
+const smallFoward = document.getElementById("sf-display");
+const powerFoward = document.getElementById("pf-display");
+const center = document.getElementById("c-dispaly");
 let allPlayers = [];
 const baseUrl = "https://nbaserver-q21u.onrender.com/api/filter";
 function findPlayers(stats) {
@@ -46,6 +51,7 @@ function makeRequest(event) {
             twoPercent: +fgRange.value,
             threePercent: +threePercentRange.value
         };
+        tableBody.innerHTML = '';
         yield findPlayers(newStat);
         return newStat;
     });
@@ -80,12 +86,58 @@ function createRow(player) {
     newRow.appendChild(threePercent);
     newRow.appendChild(action);
     tableBody.appendChild(newRow);
+    button.addEventListener("click", () => {
+        addToTeam(player);
+    });
 }
-// async function renderPage() {
-//     tableBody.innerText = '';
-//     allPlayers = await findPlayers();
-//     if(allPlayers.length > 0){
-//         dispalyPlayers(allPlayers);
-//     }
-// }
+function addToTeam(player) {
+    const name = document.createElement("p");
+    name.id = "name";
+    name.innerText = player.playerName;
+    const threePercent = document.createElement("p");
+    threePercent.innerText = `Three Percents : ${player.threePercent.toString()}%`;
+    const twoPercent = document.createElement("p");
+    twoPercent.innerText = `Two Percents : ${player.twoPercent.toString()}%`;
+    const points = document.createElement("p");
+    points.innerText = `Points : ${player.points.toString()}%`;
+    switch (player.position) {
+        case "PG":
+            pointGaurd.innerHTML = '';
+            pointGaurd.appendChild(name);
+            pointGaurd.appendChild(threePercent);
+            pointGaurd.appendChild(twoPercent);
+            pointGaurd.appendChild(points);
+            break;
+        case "SG":
+            shootingGaurd.innerHTML = '';
+            shootingGaurd.appendChild(name);
+            shootingGaurd.appendChild(threePercent);
+            shootingGaurd.appendChild(twoPercent);
+            shootingGaurd.appendChild(points);
+            break;
+        case "SF":
+            smallFoward.innerHTML = '';
+            smallFoward.appendChild(name);
+            smallFoward.appendChild(threePercent);
+            smallFoward.appendChild(twoPercent);
+            smallFoward.appendChild(points);
+            break;
+        case "PF":
+            powerFoward.innerHTML = '';
+            powerFoward.appendChild(name);
+            powerFoward.appendChild(threePercent);
+            powerFoward.appendChild(twoPercent);
+            powerFoward.appendChild(points);
+            break;
+        case "C":
+            center.innerHTML = '';
+            center.appendChild(name);
+            center.appendChild(threePercent);
+            center.appendChild(twoPercent);
+            center.appendChild(points);
+            break;
+        default:
+            break;
+    }
+}
 statsForm.addEventListener("submit", makeRequest);
