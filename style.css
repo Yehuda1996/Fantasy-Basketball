@@ -55,7 +55,7 @@ select, input[type="range"] {
     margin: 10px 0;
 }
 
-span {
+label {
     display: block;
     margin: 10px;
     font-size: 16px;
@@ -106,3 +106,21 @@ table td {
         height: 80px;
     }
 }
+
+
+#add-player-button {
+    padding: 10px 15px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%; 
+    box-sizing: border-box;
+}
+
+#add-player-button:hover {
+    background-color: #d52626;
+}
+

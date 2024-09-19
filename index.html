@@ -31,22 +31,22 @@
     <h1>NBA Player Search</h1>
     <div id="search-div">
         <select id="position-search">
-            <option value="pg">PG</option>
-            <option value="sg">SG</option>
-            <option value="sf">SF</option>
-            <option value="pf">PF</option>
-            <option value="c">C</option>
+            <option value="PG">PG</option>
+            <option value="SG">SG</option>
+            <option value="SF">SF</option>
+            <option value="PF">PF</option>
+            <option value="C">C</option>
         </select>
         <form id="stats-form">
-            <span id="points-stat">Points
+            <label id="points-stat">Points
                 <input type="range" id="points-range" min="0" max="20000" value="0">
-            </span>
-            <span id="field-goal-stat">Field Goal%
+            </label>
+            <label id="field-goal-stat">Field Goal%
                 <input type="range" id="fg-range" min="0" max="100" value="0">
-            </span>
-            <span id="3-point-stat">3-Point%
+            </label>
+            <label id="3-point-stat">3-Point%
                 <input type="range" id="3p-range" min="0" max="100" value="0">
-            </span>
+            </label>
             <input type="submit" value="Search Player">
         </form>
         <table id="player-table">
