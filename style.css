@@ -25,7 +25,7 @@ h1, h2, h3, h4 {
     display: inline-block;
     margin: 10px;
     padding: 20px;
-    width: 150px;
+    width: 160px;
     height: auto;
     background-color: #f1f1f1;
     border-radius: 8px;
@@ -49,19 +49,30 @@ h1, h2, h3, h4 {
 select, input[type="range"] {
     margin: 10px;
     padding: 5px;
-    width: 50%
+    width: 100%
 }
 
 #stats-form {
     margin: 10px 0;
 }
 
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
 label {
-    display: block;
-    margin: 10px;
     font-size: 16px;
     font-weight: bold;
     color: #34495e;
+    margin-right: 10px;
+}
+
+input[type="range"] {
+    flex-grow: 1;
+    margin-left: 10px;
 }
 
 input[type="submit"] {

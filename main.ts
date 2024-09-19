@@ -25,6 +25,9 @@ const shootingGaurd = document.getElementById("sg-dispaly") as HTMLDivElement;
 const smallFoward = document.getElementById("sf-display") as HTMLDivElement;
 const powerFoward = document.getElementById("pf-display") as HTMLDivElement;
 const center = document.getElementById("c-dispaly") as HTMLDivElement;
+const pointsLabel = document.getElementById("points-stat") as HTMLLabelElement;
+const fieldGoalLabel = document.getElementById("field-goal-stat") as HTMLLabelElement;
+const threePointLabel = document.getElementById("3-point-stat") as HTMLLabelElement;
 
 
 let allPlayers: Players[] = [];
@@ -63,6 +66,8 @@ async function makeRequest(event:Event): Promise<Stats>{
     await findPlayers(newStat);
     return newStat
 }
+
+statsForm.addEventListener("submit", makeRequest);
 
 function addPlayersToTable(players:Players[]){
     players.forEach(player => {
@@ -167,4 +172,14 @@ function addToTeam(player: Players){
     }
 }
 
-statsForm.addEventListener("submit", makeRequest);
+pointsRange.addEventListener("input", () =>{
+    pointsLabel.innerText = pointsRange.value;
+});
+
+fgRange.addEventListener("input", ()=>{
+    fieldGoalLabel.innerText = fgRange.value;
+});
+
+threePercentRange.addEventListener("input", ()=>{
+    threePointLabel.innerText = threePercentRange.value;
+});

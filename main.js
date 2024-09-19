@@ -19,6 +19,9 @@ const shootingGaurd = document.getElementById("sg-dispaly");
 const smallFoward = document.getElementById("sf-display");
 const powerFoward = document.getElementById("pf-display");
 const center = document.getElementById("c-dispaly");
+const pointsLabel = document.getElementById("points-stat");
+const fieldGoalLabel = document.getElementById("field-goal-stat");
+const threePointLabel = document.getElementById("3-point-stat");
 let allPlayers = [];
 const baseUrl = "https://nbaserver-q21u.onrender.com/api/filter";
 function findPlayers(stats) {
@@ -56,6 +59,7 @@ function makeRequest(event) {
         return newStat;
     });
 }
+statsForm.addEventListener("submit", makeRequest);
 function addPlayersToTable(players) {
     players.forEach(player => {
         createRow(player);
@@ -140,4 +144,12 @@ function addToTeam(player) {
             break;
     }
 }
-statsForm.addEventListener("submit", makeRequest);
+pointsRange.addEventListener("input", () => {
+    pointsLabel.innerText = pointsRange.value;
+});
+fgRange.addEventListener("input", () => {
+    fieldGoalLabel.innerText = fgRange.value;
+});
+threePercentRange.addEventListener("input", () => {
+    threePointLabel.innerText = threePercentRange.value;
+});

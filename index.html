@@ -43,16 +43,22 @@
             <option value="C">C</option>
         </select>
         <form id="stats-form">
-            <label id="points-stat">Points
-                <input type="range" id="points-range" min="0" max="20000" value="0">
-            </label>
-            <label id="field-goal-stat">Field Goal%
-                <input type="range" id="fg-range" min="0" max="100" value="0">
-            </label>
-            <label id="3-point-stat">3-Point%
-                <input type="range" id="3p-range" min="0" max="100" value="0">
-            </label>
-            <input type="submit" value="Search Player">
+            <form id="stats-form">
+                <div class="form-group">
+                    <label id="points-stat">Points</label>
+                    <input type="range" id="points-range" min="0" max="20000" value="0">
+                </div>
+                <div class="form-group">
+                    <label id="field-goal-stat">Field Goal%</label>
+                    <input type="range" id="fg-range" min="0" max="100" value="0">
+                </div>
+                <div class="form-group">
+                    <label id="3-point-stat">3-Point%</label>
+                    <input type="range" id="3p-range" min="0" max="100" value="0">
+                </div>
+                <input type="submit" value="Search Player">
+            </form>
+            
         </form>
         <table id="player-table">
             <thead class="table" id="table-head">
